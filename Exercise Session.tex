@@ -1,0 +1,117 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[english]{babel}
+%4 stackanchor  
+\usepackage{stackengine}
+% define nice looking boxes
+\usepackage[many]{tcolorbox}
+
+% a base set, that is then customised
+\tcbset {
+  base/.style={
+    boxrule=0mm,
+    leftrule=1mm,
+    left=1.75mm,
+    arc=0mm, 
+    fonttitle=\bfseries, 
+    colbacktitle=black!10!white, 
+    coltitle=black, 
+    toptitle=0.75mm, 
+    bottomtitle=0.25mm,
+    title={#1}
+  }
+}
+\definecolor{brandblue}{rgb}{0.34, 0.7, 1}
+\newtcolorbox{mainbox}[1]{
+  colframe=brandblue, 
+  base={#1}
+}
+
+\definecolor{orange}{rgb}{1, 0.55, 0.3}
+\newtcolorbox{tbox}[1]{
+  colframe=orange, 
+  base={#1}
+}
+
+\definecolor{green}{rgb}{0.294, 0.729, 0.254}
+\newtcolorbox{bembox}[1]{
+  colframe=green, 
+  base={#1}
+}
+
+\definecolor{red}{rgb}{0.99, 0.04, 0.99}
+\newtcolorbox{tipbox}[1]{
+  colframe=red, 
+  base={#1}
+}
+
+\newtcolorbox{defbox}[1]{
+  colframe=black!20!white,
+  base={#1}
+}
+% Mathematical typesetting & symbols
+\usepackage{amsthm, mathtools, amssymb} 
+\usepackage{marvosym, wasysym}
+
+
+\allowdisplaybreaks
+
+% Tables
+\usepackage{tabularx, multirow}
+\usepackage{booktabs}
+\renewcommand*{\arraystretch}{2}
+
+% Make enumerations more compact
+\usepackage{enumitem}
+\setitemize{itemsep=0.5pt}
+\setenumerate{itemsep=0.75pt}
+
+% To include sketches & PDFs
+\usepackage{graphicx}
+
+% For hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true
+}
+% Math helper stuff
+\def\limn{\lim_{n\to \infty}}
+\def\limxo{\lim_{x\to 0}}
+\def\limxi{\lim_{x\to\infty}}
+\def\limxn{\lim_{x\to-\infty}}
+\def\sumk{\sum_{k=1}^\infty}
+\def\sumn{\sum_{n=0}^\infty}
+\def\R{\mathbb{R}}
+\def\dx{\text{ d}x}
+\usepackage[utf8]{inputenc}
+
+\title{Exercise Sessions}
+\author{Konstantin Lucny}
+\date{HS 2023}
+
+\begin{document}
+\maketitle
+\section{Class}
+\subsection{Important Commandline commands}
+\begin{itemize}
+    \item \textbf{whoami}: prints the login name of the current user
+    \item \textbf{pwd}: prints the working directory
+    \item \textbf{ls}: lists files and directories
+    \item \textbf{cd}: changes the current working directory to the given pathname (e.g. \textit{cd /home/username/ex1})
+    \item \textbf{mkdir}: creates a directory (e.g. \textit{mkdir /home/username/ex1/newfolder})
+    \item \textbf{rmdir}: removes a directory (only removes empty directories)
+    \item \textbf{cp}: copies files/folders from one location to another (e.g. \textit{cp /etc/hosts /home/username})
+    \item \textbf{mv}: move/rename existing files/folders (e.g. \textit{mv /home/username/hosts /home/username/ex1/newfolder})
+    \item \textbf{rm}: removes files/folders (e.g. \textit{rm /home/username/ex1/newfolder/hosts})
+    \item \textbf{ps}: see the processes associated with the current shell (\textit{ps –ef} to get a full listing of all processes in the system)
+    \item \textbf{top}: display the processes using the most CPU time (Quit with \textit{q})
+    \item \textbf{kill}: terminates a process (e.g. \textit{kill <ProcessID>}; \textit{-9} option to force kill)
+    \item \textbf{gedit, emacs, vi/vim}: useful text editors for writing your programs and editing files
+    \item \textbf{cat, more, less}: useful to view files
+    \item \textbf{grep}: useful for searching text files
+    \item \textbf{gcc/gdb}: compilers and debuggers
+    
+
+\end{itemize}
+
+\end{document}
