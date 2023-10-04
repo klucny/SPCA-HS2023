@@ -6,6 +6,34 @@
 % define nice looking boxes
 \usepackage[many]{tcolorbox}
 
+% For code example
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
 % a base set, that is then customised
 \tcbset {
   base/.style={
@@ -110,8 +138,52 @@
     \item \textbf{cat, more, less}: useful to view files
     \item \textbf{grep}: useful for searching text files
     \item \textbf{gcc/gdb}: compilers and debuggers
-    
+\end{itemize}
+\pagebreak
+\section{Session}
+\subsection{Headerfiles}
+Put \textbf{function calls} in there
+\begin{lstlisting}[language=C++]
+    #include "header_file.h" 
+\end{lstlisting}
+\subsection{Makefile example}
+\begin{lstlisting}[language=C++]
+    CC = gcc
+    CFLAGS = -O -Wall
 
+    btest:  btest.c bits.c decl.c tests.c btest.h bits.h
+            $(CC) $(CFLAGS) -o btest bits.c btest.c decl.c tests.c
+    clean:
+        rm -f *.o btest
+\end{lstlisting}
+\textbf{Explanation to Makefile example}
+\begin{itemize}
+    \item $-o$ specifies the output file names
+    \item \textit{make} or \textit{make btest}: runs the compilation but \underline{only} if the files are modified
+    \item \textit{make clean} removes your generated binary file
+    \item *.o refers to object files (more on that later)
 \end{itemize}
 
+\textbf{Another makefile}
+\begin{lstlisting}[]
+    CC = gcc
+
+    targ: shifts.c
+            $(CC) -o shift shifts.c
+    clean:
+        rm -f shift
+\end{lstlisting}
+
+\subsection{GCC Flags}
+\begin{itemize}
+    \item \textbf{Werror}: Make all warnings into errors
+    \item \textbf{Wpedantic}: Issue all the warnings demanded by strict ISO C and ISO C++; reject all programs that use forbidden extensions
+    \item \textbf{Wall}: Enables a number of warnings about questionable code
+    \item \textbf{Wextra}: This enables some extra warning flags that are not enabled by -Wall
+(such as -Wuninitialized)
+    \item \textbf{fsanitize=address}: Instrument code to detect memory errors
+    \item \textbf{fsanitize=undefined}: Instrument code to detect undefined behavior at runtime
+    \item \textbf{fstack-protector-all}: Instruments code to detect buffer overflows on the stack
+
+\end{itemize}
 \end{document}
